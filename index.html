@@ -368,7 +368,7 @@
         <div class="live-widgets">
             <div class="widget-box">
                 <span class="widget-label">الوقت الحالي</span>
-                <span class="widget-value" id="live-clock">00:00:00</span>
+                <span class="widget-value" id="live-clock">00:00:00 AM</span>
             </div>
             <div class="widget-box">
                 <span class="widget-label">تاريخ اليوم</span>
@@ -392,12 +392,6 @@
             <div class="circle-text" id="progressText">0%</div>
         </div>
     </div>
-
-    <div class="header">
-        <h1>خطة الإنقاذ الاحترافية المتوازنة</h1>
-        <p>ثانوية عامة - تنظيم وإنجاز</p>
-    </div>
-
     <div class="table-container">
         <table>
             <thead>
@@ -696,14 +690,21 @@
             });
         });
 
-        // تشغيل الساعة الرقمية والتاريخ الحي
+        // تشغيل الساعة الرقمية بنظام 12 ساعة والتاريخ الحي
         function startLiveWidgets() {
             const clockElement = document.getElementById('live-clock');
             const dateElement = document.getElementById('live-date');
             
             setInterval(() => {
                 const now = new Date();
-                clockElement.innerText = now.toLocaleTimeString('en-US', { hour12: false });
+                
+                // عرض الوقت بصيغة 12 ساعة (AM/PM)
+                clockElement.innerText = now.toLocaleTimeString('en-US', { 
+                    hour: '2-digit', 
+                    minute: '2-digit', 
+                    second: '2-digit', 
+                    hour12: true 
+                });
                 
                 const day = String(now.getDate()).padStart(2, '0');
                 const month = String(now.getMonth() + 1).padStart(2, '0');
@@ -732,7 +733,6 @@
             if (!isRunning) {
                 isRunning = true;
                 startBtn.innerText = 'إيقاف';
-                // تحويل اللون للأحمر عند التشغيل للإيقاف المؤقت
                 startBtn.style.background = '#ff4757';
                 stopwatchInterval = setInterval(() => {
                     elapsedSeconds++;
