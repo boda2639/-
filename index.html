@@ -1,1 +1,697 @@
-jgghfhgf
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+>خ</titleطة الإنقاذ الاحترافية المتوازنة - تالتة ثانوي><title
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Orbit
+ron:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+/* ألوان الخلفية والمكونات بتأثير النيون الداكن المتناسق */
+--bg-color: #030712;
+--bg-gradient: radial-gradient(circle at 50% 50%, #0f172a 0%, #030712 100%);
+--card-bg: rgba(15, 23, 42, 0.6);
+--card-hover: rgba(30, 41, 59, 0.8);
+--text-main: #f8fafc;
+--text-muted: #94a3b8;
+--border-color: rgba(255, 255, 255, 0.08);
+--glow-color: rgba(96, 165, 250, 0.15);
+/* ألوان المواد الفاخرة المضيئة */
+--physics: #ff4757;
+--chemistry: #ffa502;
+--biology: #2ed573;
+--arabic: #1e90ff;
+--english: #00d2d3;
+--accent-success: #2ed573;
+} b
+ody {
+font-family: 'Cairo', 'Segoe UI', system-ui, sans-serif;
+background: var(--bg-gradient);
+color: var(--text-main);
+margin: 0;
+padding: 140px 20px 40px 20px;
+display: flex;
+flex-direction: column;
+align-items: center;
+letter-spacing: -0.01em;overflow-x: hidden;
+min-height: 100vh;
+} /
+/* حاوية الأدوات العلوية الثابتة *
+.sticky-dashboard {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+background: rgba(3, 7, 18, 0.8);
+backdrop-filter: blur(16px);
+-webkit-backdrop-filter: blur(16px);
+border-bottom: 1px solid var(--border-color);
+padding: 10px 40px;
+z-index: 1000;
+display: flex;
+justify-content: space-between;
+align-items: center;
+box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+} /
+/* قسم الأدوات والوقت *
+.live-widgets {
+display: flex;
+gap: 15px;
+align-items: center;
+} .w
+idget-box {
+background: rgba(255, 255, 255, 0.03);
+border: 1px solid var(--border-color);
+padding: 8px 16px;
+border-radius: 12px;
+display: flex;
+flex-direction: column;
+align-items: center;
+min-width: 100px;
+} /
+/* وجت ستوب ووتش مخصصة بالأزرار *
+.stopwatch-box {
+min-width: 160px;} .
+stopwatch-controls {
+display: flex;
+gap: 8px;
+margin-top: 4px;
+} .
+stopwatch-btn {
+background: rgba(255, 255, 255, 0.05);
+border: 1px solid rgba(255, 255, 255, 0.1);
+color: var(--text-main);
+padding: 2px 8px;
+border-radius: 6px;
+font-size: 0.7rem;
+cursor: pointer;
+font-family: 'Cairo', sans-serif;
+transition: all 0.2s ease;
+} .
+stopwatch-btn:hover {
+background: #60a5fa;
+color: #030712;
+box-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
+} .w
+idget-label {
+font-size: 0.7rem;
+color: var(--text-muted);
+font-weight: bold;
+margin-bottom: 2px;
+} .w
+idget-value {
+font-family: 'Orbitron', 'Cairo', sans-serif;
+font-size: 1.1rem;
+font-weight: 700;
+color: #60a5fa;
+text-shadow: 0 0 10px rgba(96, 165, 250, 0.3);
+} /
+/* العداد الدائري الفاجر للإنجاز *
+.circular-progress-container {display: flex;
+align-items: center;
+gap: 12px;
+} .
+progress-circle-svg {
+width: 60px;
+height: 60px;
+transform: rotate(-90deg);
+} .
+progress-circle-bg {
+fill: none;
+stroke: rgba(255, 255, 255, 0.05);
+stroke-width: 6;
+} .
+progress-circle-fill {
+fill: none;
+stroke: linear-gradient(135deg, #2ed573, #1dd1a1);
+stroke-width: 6;
+stroke-linecap: round;
+stroke-dasharray: 170;
+stroke-dashoffset: 170;
+transition: stroke-dashoffset 0.4s ease;
+} .
+circle-text {
+font-family: 'Orbitron', sans-serif;
+font-size: 1.1rem;
+font-weight: 800;
+color: var(--accent-success);
+text-shadow: 0 0 10px rgba(46, 213, 115, 0.4);
+} /
+/* الواجهة العلوية *
+.header {
+text-align: center;
+margin-bottom: 50px;
+max-width: 800px;
+animation: fadeInDown 0.8s ease-out;
+}.header h1 {
+font-size: 3rem;
+font-weight: 900;
+margin-bottom: 16px;
+background: linear-gradient(135deg, #ffffff 40%, #60a5fa, #3b82f6);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+text-shadow: 0 0 30px var(--glow-color);
+} .
+header p {
+color: var(--text-muted);
+font-size: 1.2rem;
+font-weight: 600;
+} /
+/* حاوية الجدول الفاخرة *
+.table-container {
+width: 100%;
+max-width: 1250px;
+background: var(--card-bg);
+backdrop-filter: blur(8px);
+border-radius: 28px;
+box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255,255,255,0.1);
+overflow: hidden;
+border: 1px solid var(--border-color);
+animation: fadeInUp 0.8s ease-out;
+margin-bottom: 40px;
+} t
+able {
+width: 100%;
+border-collapse: collapse;
+text-align: right;
+} t
+h {
+background-color: rgba(15, 23, 42, 0.8);
+color: #ffffff;
+padding: 24px;
+font-size: 1.15rem;
+font-weight: 800;
+border-bottom: 2px solid rgba(255, 255, 255, 0.05);letter-spacing: 0.5px;
+} t
+d {
+padding: 26px;
+border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+vertical-align: top;
+transition: all 0.3s ease;
+} t
+r:last-child td {
+border-bottom: none;
+} t
+r {
+transition: background-color 0.3s;
+} t
+r:hover td {
+background-color: rgba(30, 41, 59, 0.3);
+} .
+day-cell {
+font-weight: 900;
+color: #ffffff;
+font-size: 1.25rem;
+text-align: center;
+background-color: rgba(3, 7, 18, 0.4);
+border-left: 1px solid rgba(255, 255, 255, 0.04);
+width: 120px;
+vertical-align: middle;
+text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+} .
+period-bucket {
+display: flex;
+flex-direction: column;
+gap: 18px;
+height: 100%;
+} /
+/* شارات المواد المضيئة *
+.subject-badge {align-self: flex-start;
+padding: 6px 16px;
+border-radius: 12px;
+font-size: 0.85rem;
+font-weight: 800;
+color: #ffffff;
+display: inline-flex;
+align-items: center;
+transition: all 0.3s ease;
+} .
+badge-physics { background: rgba(255, 71, 87, 0.15); color: var(--physics); border: 1px
+solid rgba(255, 71, 87, 0.3); box-shadow: 0 0 15px rgba(255, 71, 87, 0.1); }
+.badge-chemistry { background: rgba(255, 165, 2, 0.15); color: var(--chemistry); border:
+1px solid rgba(255, 165, 2, 0.3); box-shadow: 0 0 15px rgba(255, 165, 2, 0.1); }
+.badge-biology { background: rgba(46, 213, 115, 0.15); color: var(--biology); border: 1px
+solid rgba(46, 213, 115, 0.3); box-shadow: 0 0 15px rgba(46, 213, 115, 0.1); }
+.badge-arabic { background: rgba(30, 144, 255, 0.15); color: var(--arabic); border: 1px solid
+rgba(30, 144, 255, 0.3); box-shadow: 0 0 15px rgba(30, 144, 255, 0.1); }
+.badge-english { background: rgba(0, 210, 211, 0.15); color: var(--english); border: 1px
+solid rgba(0, 210, 211, 0.3); box-shadow: 0 0 15px rgba(0, 210, 211, 0.1); }
+tr:hover .subject-badge {
+transform: scale(1.05);
+} .t
+asks-container {
+display: flex;
+flex-direction: column;
+gap: 12px;
+} /
+/* كروت المهام التفاعلية *
+.task-item {
+display: flex;
+align-items: center;
+gap: 14px;
+font-size: 1rem;
+line-height: 1.6;
+color: #cbd5e1;
+cursor: pointer;
+transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+padding: 12px 16px;border-radius: 14px;
+background: rgba(255, 255, 255, 0.02);
+border: 1px solid rgba(255, 255, 255, 0.03);
+} .t
+ask-item:hover {
+background-color: rgba(255, 255, 255, 0.06);
+color: #ffffff;
+transform: translateX(-6px);
+border-color: rgba(255, 255, 255, 0.1);
+box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+} .t
+ask-item input[type="checkbox"] {
+appearance: none;
+-webkit-appearance: none;
+width: 22px;
+height: 22px;
+border: 2px solid #475569;
+border-radius: 8px;
+background: transparent;
+cursor: pointer;
+display: grid;
+place-content: center;
+transition: all 0.2s ease;
+position: relative;
+flex-shrink: 0;
+} .t
+ask-item input[type="checkbox"]::before {
+content: "";
+width: 12px;
+height: 12px;
+transform: scale(0);
+transition: 0.2s transform ease;
+background-color: #030712;
+clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+} .t
+ask-item input[type="checkbox"]:checked {
+background-color: var(--accent-success);
+border-color: var(--accent-success);
+box-shadow: 0 0 15px rgba(46, 213, 115, 0.6);} .t
+ask-item input[type="checkbox"]:checked::before {
+transform: scale(1);
+} .t
+ask-item.completed {
+color: #4b5563;
+background-color: rgba(46, 213, 115, 0.02);
+border-color: rgba(46, 213, 115, 0.08);
+} .t
+ask-item.completed span {
+text-decoration: line-through;
+opacity: 0.5;
+} /
+/* فوتر المصمم المخصص *
+.designer-footer {
+text-align: center;
+font-size: 0.95rem;
+color: var(--text-muted);
+margin-top: 20px;
+font-weight: 600;
+letter-spacing: 0.5px;
+} .
+designer-footer span {
+font-family: 'Orbitron', sans-serif;
+color: #60a5fa;
+font-weight: 700;
+text-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
+} @
+keyframes fadeInDown {
+from { opacity: 0; transform: translateY(-30px); }
+to { opacity: 1; transform: translateY(0); }
+} @
+keyframes fadeInUp {
+from { opacity: 0; transform: translateY(40px); }
+to { opacity: 1; transform: translateY(0); }
+}@media (max-width: 992px) {
+body { padding-top: 280px; }
+.sticky-dashboard { flex-direction: column; gap: 15px; padding: 15px; }
+.live-widgets { flex-wrap: wrap; justify-content: center; }
+table, thead, tbody, th, td, tr { display: block; }
+thead { display: none; }
+tr {
+margin-bottom: 35px;
+border: 1px solid var(--border-color);
+border-radius: 24px;
+overflow: hidden;
+background-color: rgba(15, 23, 42, 0.8);
+}t
+d {
+border: none;
+border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+padding: 20px;
+}t
+d:last-child { border-bottom: none; }
+.day-cell {
+width: auto;
+text-align: right;
+background-color: rgba(30, 41, 59, 0.8);
+padding: 16px 20px;
+}t
+d::before {
+content: attr(data-label);
+display: block;
+font-weight: 800;
+color: #60a5fa;
+font-size: 0.9rem;
+margin-bottom: 12px;
+}.t
+ask-item:hover { transform: translateX(0); }
+}
+</style>
+</head>
+<body>
+<div class="sticky-dashboard">
+<div class="live-widgets">
+<div class="widget-box"><span class="widget-label">يلاحل/<الوقت اspan>
+<span class="widget-value" id="live-clock">00:00:00</span>
+</div>
+<div class="widget-box">
+<span class="widget-label">/<تاريخ اليومspan>
+<span class="widget-value" id="live-date">-- / -- / ----</span>
+</div>
+<div class="widget-box stopwatch-box">
+<span class="widget-label">/<)ساعة الإيقاف (المذاكرةspan>
+<span class="widget-value" id="stopwatch-display">00:00:00</span>
+<div class="stopwatch-controls">
+<button class="stopwatch-btn" id="sw-start-btn">/<بدءbutton>
+<button class="stopwatch-btn" id="sw-reset-btn">/<تصفيرbutton>
+</div>
+</div>
+</div>
+<div class="circular-progress-container">
+<span class="widget-label" style="font-size: 0.9rem;">يلكل/<:معدل الإنجاز اspan>
+<svg class="progress-circle-svg">
+<circle class="progress-circle-bg" cx="30" cy="30" r="27"></circle>
+<circle class="progress-circle-fill" id="circleProgress" cx="30" cy="30" r="27"></circle>
+</svg>
+<div class="circle-text" id="progressText">0%</div>
+</div>
+</div>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+></thاليوم><th
+>)</thالفترة الأولى (صباحاً><th
+>)</thالفترة الثانية (عصراً><th
+>)</thالفترة الثالثة (مسا ًء><th
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="day-cell">1 /<اليومtd>
+>"الفترة الأولى"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-physics">/<فيزياءspan><div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>الفصل الأول: التيار
+></span></labelالكهربي وقانون أوم وكيرشوف
+</div>
+</div>
+</td>
+>"الفترة الثانية"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-chemistry">/<كيمياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>الباب الأول: العناصر
+></span></labelالانتقالية ومعادلات الحديد
+</div>
+</div>
+</td>
+>"الفترة الثالثة"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-arabic">ةيب/<لغة عرspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>+ )2  و1 النحو (الوحدة
+ةس
+>م</span></labelدر الإحياء والبعث
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="day-cell">2 /<اليومtd>
+>"الفترة الأولى"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-english">/<إنجليزيspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>)3 ،2 ،1( الوحدات
+>املك</span></labelت وقواعد
+</div>
+</div>
+</td>
+>"الفترة الثانية"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-biology">/<أحياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>ةكفصل الدعامة والحر
+>ماكلاب</span></labelل ورسوماتها</div>
+</div>
+</td>
+>"الفترة الثالثة"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-physics">/<فيزياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>الفصل الثاني: التأثير
+></span></labelالمغناطيسي وأجهزة القياس
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="day-cell">3 /<اليومtd>
+>"الفترة الأولى"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-chemistry">/<كيمياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>الباب الثاني: التحليل
+></span></labelالكيميائي ومسائل المعايرة والترسيب
+</div>
+</div>
+</td>
+>"الفترة الثانية"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-arabic">ةيب/<لغة عرspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>+ )4  و3 النحو (الوحدة
+></span></labelالاتجاه الوجداني والديوان
+</div>
+</div>
+</td>
+>"الفترة الثالثة"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-english">/<إنجليزيspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>)6 ،5 ،4( الوحدات
+>املك</span></labelت وقواعد
+</div>
+</div>
+</td></tr>
+<tr>
+<td class="day-cell">4 /<اليومtd>
+>"الفترة الأولى"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-biology">/<أحياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>ينفصل التنسيق الهرمو
+>()</span></labelالغدد كاملة والعلاقات
+</div>
+</div>
+</td>
+>"الفترة الثانية"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-physics">/<فيزياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>الفصل الثالث: الحث
+></span></labelالكهرومغناطيسي والدينامو والمحولات
+</div>
+</div>
+</td>
+>"الفترة الثالثة"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-chemistry">/<كيمياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>الباب الثالث: الاتزان
+></span></labelالكيميائي وقوانين لوشاتيليه
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="day-cell">5 /<اليومtd>
+>"الفترة الأولى"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-arabic">ةيب/<لغة عرspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>)7 ،6 ،5 النحو (الوحدة
+>م +</span></labelدرسة المهاجر والواقعية
+</div>
+</div></td>
+>"الفترة الثانية"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-english">/<إنجليزيspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>)9 ،8 ،7( الوحدات
+>املك</span></labelت وقواعد
+</div>
+</div>
+</td>
+>"الفترة الثالثة"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-biology">/<أحياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>فصل التكاثر (النباتات
+></span></labelالزهرية والإنسان) والمناعة
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="day-cell">6 /<اليومtd>
+>"الفترة الأولى"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-physics">/<فيزياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>الفصل الرابع (تيار
+>تم)</span></labelردد) + الحديثة (الفصل  5و 6
+</div>
+</div>
+</td>
+>"الفترة الثانية"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-chemistry">/<كيمياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>)ةيبالباب الرابع (الكهر
+> +)</span></labelالعضوية (الهيدروكربونات
+</div>
+</div>
+</td>
+>"الفترة الثالثة"=<td data-label
+<div class="period-bucket"><span class="subject-badge badge-biology">/<أحياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span> فصل الـDNA: جهود
+></span></labelالإثبات والتركيب والتضاعف
+</div>
+</div>
+</td>
+</tr>
+<tr>
+<td class="day-cell">7 /<اليومtd>
+>"الفترة الأولى"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-physics">/<فيزياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>:)8  و7 الحديثة (الفصل
+></span></labelالليزر والإلكترونيات
+</div>
+</div>
+</td>
+>"الفترة الثانية"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-chemistry">/<كيمياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span>العضوية (مشتقات
+>)</span></labelالهيدروكربونات والتفاعلات
+</div>
+</div>
+</td>
+>"الفترة الثالثة"=<td data-label
+<div class="period-bucket">
+<span class="subject-badge badge-biology">/<أحياءspan>
+<div class="tasks-container">
+<label class="task-item"><input type="checkbox"> <span> فصل الـRNA: أنواع
+></span></labelالحمض النووي وتخليق البروتين
+</div>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div><div class="designer-footer">
+ة< تم التطوير والتصميم بواسطspan>Abdelruhman elblasy</span>
+</div>
+<script>
+const checkboxes = document.querySelectorAll('.task-item input[type="checkbox"]');
+const circleProgress = document.getElementById('circleProgress');
+const progressText = document.getElementById('progressText');
+const maxCircumference = 170;
+function updateProgress() {
+const total = checkboxes.length;
+const checkedCount = document.querySelectorAll('.task-item
+input[type="checkbox"]:checked').length;
+const percentage = total > 0 ? Math.round((checkedCount / total) * 100) : 0;
+progressText.innerText = `${percentage}%`;
+const offset = maxCircumference - (percentage / 100) * maxCircumference;
+circleProgress.style.strokeDashoffset = offset;
+} c
+heckboxes.forEach(checkbox => {
+checkbox.addEventListener('change', function() {
+if (this.checked) {
+this.parentElement.classList.add('completed');
+} else {
+this.parentElement.classList.remove('completed');
+}u
+pdateProgress();
+});
+});
+تشغيل الساعة الرقمية والتاريخ الحي //
+function startLiveWidgets() {
+const clockElement = document.getElementById('live-clock');
+const dateElement = document.getElementById('live-date');
+setInterval(() => {
+const now = new Date();
+clockElement.innerText = now.toLocaleTimeString('en-US', { hour12: false });
+const day = String(now.getDate()).padStart(2, '0');
+const month = String(now.getMonth() + 1).padStart(2, '0');const year = now.getFullYear();
+dateElement.innerText = `${day} / ${month} / ${year}`;
+}, 1000);
+} //
+المتناسق مع الواجهة )ك (Stopwatchود ساعة الإيقاف
+let stopwatchInterval = null;
+let elapsedSeconds = 0;
+let isRunning = false;
+const stopwatchDisplay = document.getElementById('stopwatch-display');
+const startBtn = document.getElementById('sw-start-btn');
+const resetBtn = document.getElementById('sw-reset-btn');
+function updateStopwatchDisplay() {
+const hrs = String(Math.floor(elapsedSeconds / 3600)).padStart(2, '0');
+const mins = String(Math.floor((elapsedSeconds % 3600) / 60)).padStart(2, '0');
+const secs = String(elapsedSeconds % 60).padStart(2, '0');
+stopwatchDisplay.innerText = `${hrs}:${mins}:${secs}`;
+} s
+tartBtn.addEventListener('click', () => {
+if (!isRunning) {
+isRunning = true;
+startBtn.innerText = ';'إيقاف
+تحويل اللون للأحمر عند التشغيل للإيقاف المؤقت // ;'startBtn.style.background = '#ff4757
+stopwatchInterval = setInterval(() => {
+elapsedSeconds++;
+updateStopwatchDisplay();
+}, 1000);
+} else {
+isRunning = false;
+startBtn.innerText = ';'بدء
+startBtn.style.background = 'rgba(255, 255, 255, 0.05)';
+clearInterval(stopwatchInterval);
+}
+});
+resetBtn.addEventListener('click', () => {
+isRunning = false;
+startBtn.innerText = ';'بدء
+startBtn.style.background = 'rgba(255, 255, 255, 0.05)';
+clearInterval(stopwatchInterval);elapsedSeconds = 0;
+updateStopwatchDisplay();
+});
+updateProgress();
+startLiveWidgets();
+</script>
+</body>
+</html>
