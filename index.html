@@ -23,6 +23,7 @@
             --arabic: #1e90ff;
             --english: #00d2d3;
             --accent-success: #2ed573;
+            --robot-color: #a855f7;
         }
         body {
             font-family: 'Cairo', 'Segoe UI', system-ui, sans-serif;
@@ -138,7 +139,7 @@
         }
         .header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 30px;
             max-width: 800px;
             animation: fadeInDown 0.8s ease-out;
         }
@@ -156,6 +157,44 @@
             font-size: 1.2rem;
             font-weight: 600;
         }
+        
+        /* تسيق الروبوت الداعم النفسي */
+        .robot-container {
+            width: 100%;
+            max-width: 1250px;
+            background: rgba(168, 85, 247, 0.06);
+            border: 1px solid rgba(168, 85, 247, 0.2);
+            border-radius: 20px;
+            padding: 15px 25px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            box-shadow: 0 10px 25px rgba(168, 85, 247, 0.05);
+            animation: fadeInUp 0.8s ease-out;
+        }
+        .robot-icon {
+            font-size: 2.5rem;
+            animation: pulse 2s infinite ease-in-out;
+            flex-shrink: 0;
+        }
+        .robot-content {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .robot-name {
+            font-weight: 800;
+            font-size: 1rem;
+            color: #c084fc;
+        }
+        .robot-speech {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #f3e8ff;
+            transition: opacity 0.5s ease;
+        }
+
         .table-container {
             width: 100%;
             max-width: 1250px;
@@ -225,44 +264,16 @@
             align-items: center;
             transition: all 0.3s ease;
         }
-        .badge-physics {
-            background: rgba(255, 71, 87, 0.15);
-            color: var(--physics);
-            border: 1px solid rgba(255, 71, 87, 0.3);
-            box-shadow: 0 0 15px rgba(255, 71, 87, 0.1);
-        }
-        .badge-chemistry {
-            background: rgba(255, 165, 2, 0.15);
-            color: var(--chemistry);
-            border: 1px solid rgba(255, 165, 2, 0.3);
-            box-shadow: 0 0 15px rgba(255, 165, 2, 0.1);
-        }
-        .badge-biology {
-            background: rgba(46, 213, 115, 0.15);
-            color: var(--biology);
-            border: 1px solid rgba(46, 213, 115, 0.3);
-            box-shadow: 0 0 15px rgba(46, 213, 115, 0.1);
-        }
-        .badge-arabic {
-            background: rgba(30, 144, 255, 0.15);
-            color: var(--arabic);
-            border: 1px solid rgba(30, 144, 255, 0.3);
-            box-shadow: 0 0 15px rgba(30, 144, 255, 0.1);
-        }
-        .badge-english {
-            background: rgba(0, 210, 211, 0.15);
-            color: var(--english);
-            border: 1px solid rgba(0, 210, 211, 0.3);
-            box-shadow: 0 0 15px rgba(0, 210, 211, 0.1);
-        }
-        tr:hover .subject-badge {
-            transform: scale(1.05);
-        }
-        .tasks-container {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
+        .badge-physics { background: rgba(255, 71, 87, 0.15); color: var(--physics); border: 1px solid rgba(255, 71, 87, 0.3); box-shadow: 0 0 15px rgba(255, 71, 87, 0.1); }
+        .badge-chemistry { background: rgba(255, 165, 2, 0.15); color: var(--chemistry); border: 1px solid rgba(255, 165, 2, 0.3); box-shadow: 0 0 15px rgba(255, 165, 2, 0.1); }
+        .badge-biology { background: rgba(46, 213, 115, 0.15); color: var(--biology); border: 1px solid rgba(46, 213, 115, 0.3); box-shadow: 0 0 15px rgba(46, 213, 115, 0.1); }
+        .badge-arabic { background: rgba(30, 144, 255, 0.15); color: var(--arabic); border: 1px solid rgba(30, 144, 255, 0.3); box-shadow: 0 0 15px rgba(30, 144, 255, 0.1); }
+        .badge-english { background: rgba(0, 210, 211, 0.15); color: var(--english); border: 1px solid rgba(0, 210, 211, 0.3); box-shadow: 0 0 15px rgba(0, 210, 211, 0.1); }
+        .badge-general { background: rgba(168, 85, 247, 0.15); color: #c084fc; border: 1px solid rgba(168, 85, 247, 0.3); box-shadow: 0 0 15px rgba(168, 85, 247, 0.1); }
+        
+        tr:hover .subject-badge { transform: scale(1.05); }
+        .tasks-container { display: flex; flex-direction: column; gap: 12px; }
+        
         .task-item {
             display: flex;
             align-items: center;
@@ -313,40 +324,21 @@
             border-color: var(--accent-success);
             box-shadow: 0 0 15px rgba(46, 213, 115, 0.6);
         }
-        .task-item input[type="checkbox"]:checked::before {
-            transform: scale(1);
-        }
+        .task-item input[type="checkbox"]:checked::before { transform: scale(1); }
         .task-item.completed {
             color: #4b5563;
             background-color: rgba(46, 213, 115, 0.02);
             border-color: rgba(46, 213, 115, 0.08);
         }
-        .task-item.completed span {
-            text-decoration: line-through;
-            opacity: 0.5;
-        }
-        .designer-footer {
-            text-align: center;
-            font-size: 0.95rem;
-            color: var(--text-muted);
-            margin-top: 20px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-        }
-        .designer-footer span {
-            font-family: 'Orbitron', sans-serif;
-            color: #60a5fa;
-            font-weight: 700;
-            text-shadow: 0 0 10px rgba(96, 165, 250, 0.4);
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(40px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .task-item.completed span { text-decoration: line-through; opacity: 0.5; }
+        
+        .designer-footer { text-align: center; font-size: 0.95rem; color: var(--text-muted); margin-top: 20px; font-weight: 600; letter-spacing: 0.5px; }
+        .designer-footer span { font-family: 'Orbitron', sans-serif; color: #60a5fa; font-weight: 700; text-shadow: 0 0 10px rgba(96, 165, 250, 0.4); }
+        
+        @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); filter: drop-shadow(0 0 10px #a855f7); } }
+
         @media (max-width: 992px) {
             body { padding-top: 280px; }
             .sticky-dashboard { flex-direction: column; gap: 15px; padding: 15px; }
@@ -392,6 +384,20 @@
             <div class="circle-text" id="progressText">0%</div>
         </div>
     </div>
+
+    <div class="header">
+        <h1>خطة الإنقاذ الاحترافية المتوازنة</h1>
+        <p>ثانوية عامة - تنظيم وإنجاز</p>
+    </div>
+
+    <div class="robot-container">
+        <div class="robot-icon">🤖</div>
+        <div class="robot-content">
+            <div class="robot-name">الداعم النفسي:</div>
+            <div class="robot-speech" id="robotQuote">يا بطل! بدايتك اليوم هي خطوة قريبة جداً لحلمك.. استعن بالله وابدأ!</div>
+        </div>
+    </div>
+
     <div class="table-container">
         <table>
             <thead>
@@ -655,6 +661,46 @@
                         </div>
                     </td>
                 </tr>
+                <tr>
+                    <td class="day-cell">اليوم 8</td>
+                    <td data-label="الفترة الأولى">
+                        <div class="period-bucket">
+                            <span class="subject-badge badge-english">إنجليزي</span>
+                            <div class="tasks-container">
+                                <label class="task-item">
+                                    <input type="checkbox">
+                                    <span>المهمة 1: مراجعة يونت 10 و 11 و 12</span>
+                                </label>
+                                <label class="task-item">
+                                    <input type="checkbox">
+                                    <span>المهمة 2: قصة الإنجليزي (Great Expectations)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="الفترة الثانية">
+                        <div class="period-bucket">
+                            <span class="subject-badge badge-arabic">لغة عربية</span>
+                            <div class="tasks-container">
+                                <label class="task-item">
+                                    <input type="checkbox">
+                                    <span>المهمة 3: قصة الأيام (طه حسين) كاملة</span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td data-label="الفترة الثالثة">
+                        <div class="period-bucket">
+                            <span class="subject-badge badge-general">عام</span>
+                            <div class="tasks-container">
+                                <label class="task-item">
+                                    <input type="checkbox">
+                                    <span>المهمة 4: مراجعة ملاحظات الأسبوع بالكامل</span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>
@@ -698,7 +744,6 @@
             setInterval(() => {
                 const now = new Date();
                 
-                // عرض الوقت بصيغة 12 ساعة (AM/PM)
                 clockElement.innerText = now.toLocaleTimeString('en-US', { 
                     hour: '2-digit', 
                     minute: '2-digit', 
@@ -755,9 +800,49 @@
             updateStopwatchDisplay();
         });
 
+        // نظام الروبوت (الداعم النفسي) - جمل تحفيزية تتغير بدقة كل دقيقة
+        const motivationalQuotes = [
+            "يا بطل! بدايتك اليوم هي خطوة قريبة جداً لحلمك.. استعن بالله وابدأ!",
+            "تذكر دائماً: التعب يزول والإنجاز وفرحة النجاح تبقى للأبد. اضغط على نفسك!",
+            "مجموعك في الثانوية العامة يُصنع الآن، في هذه اللحظات التي تقاوم فيها النوم والكسر.",
+            "ليس من الضروري أن تكون رائعاً لتبدأ، ولكن يجب أن تبدأ لتكون رائعاً.",
+            "ربّما أنت متعب الآن، ولكن تخيّل ملامح الفرحة على وجه والديك يوم النتيجة.. الأمر يستحق!",
+            "كل ساعة مذاكرة تضعها الآن هي لبنة في بناء مستقبلك الفاخر.. لا تفرط في أي دقيقة.",
+            "الناجحون لم يمتلكوا ظروفاً مثالية، بل امتلكوا إرادة صلبة تصنع من المستحيل طريقاً.",
+            "درجات السلم تصعدها خطوة خطوة، واليوم الثامن هو فرصتك لإحكام السيطرة على ما فاتك.",
+            "لا تقارن فصلك الأول بفصل شخص آخر المتقدم.. ركز في ورقتك وفي هدفك فقط.",
+            "أنت أقوى من أن يكسرك فصل فيزياء أو قاعدة إنجليزي.. فكك العقد بالصبر والورقة والقلم.",
+            "الله لا يضيع أجر من أحسن عملاً.. ثق في سعيك واترك النتائج لصاحب التدبير.",
+            "إذا شعرت بالملل، تذكر لماذا بدأت وما هو الحلم الكبير الذي ينتظرك عند خط النهاية."
+        ];
+
+        function startRobot() {
+            const robotQuoteElement = document.getElementById('robotQuote');
+            let lastIndex = 0;
+            
+            setInterval(() => {
+                // تفعيل تأثير اختفاء تدريجي قبل تغيير النص
+                robotQuoteElement.style.opacity = 0;
+                
+                setTimeout(() => {
+                    let nextIndex = Math.floor(Math.random() * motivationalQuotes.length);
+                    // ضمان عدم تكرار نفس الجملة مرتين متتاليتين
+                    while (nextIndex === lastIndex) {
+                        nextIndex = Math.floor(Math.random() * motivationalQuotes.length);
+                    }
+                    lastIndex = nextIndex;
+                    
+                    robotQuoteElement.innerText = motivationalQuotes[nextIndex];
+                    robotQuoteElement.style.opacity = 1;
+                }, 500); // نصف ثانية للاختفاء والظهور
+                
+            }, 60000); // 60000 مللي ثانية = دقيقة كاملة بالضبط
+        }
+
         // التشغيل المبدئي عند تحميل الصفحة
         updateProgress();
         startLiveWidgets();
+        startRobot();
     </script>
 </body>
 </html>
