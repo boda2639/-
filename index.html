@@ -25,6 +25,50 @@
             --accent-success: #2ed573;
             --robot-color: #a855f7;
         }
+
+        /* شاشة التحميل الافتتاحية */
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--bg-color);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            transition: opacity 0.6s ease, visibility 0.6s;
+        }
+        .loading-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 40%, #60a5fa, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px var(--glow-color);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            animation: pulseText 1.5s infinite ease-in-out;
+        }
+        .loading-bar {
+            width: 200px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 2px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+        .loading-progress {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #60a5fa, #3b82f6);
+            box-shadow: 0 0 15px #60a5fa;
+            animation: loadProgress 2s forwards cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
         body {
             font-family: 'Cairo', 'Segoe UI', system-ui, sans-serif;
             background: var(--bg-gradient);
@@ -158,7 +202,7 @@
             font-weight: 600;
         }
         
-        /* تسيق الروبوت الداعم النفسي */
+        /* الروبوت الداعم النفسي */
         .robot-container {
             width: 100%;
             max-width: 1250px;
@@ -338,6 +382,8 @@
         @keyframes fadeInDown { from { opacity: 0; transform: translateY(-30px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
         @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); filter: drop-shadow(0 0 10px #a855f7); } }
+        @keyframes pulseText { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 20px rgba(96, 165, 250, 0.2)); } 50% { transform: scale(1.03); filter: drop-shadow(0 0 40px rgba(96, 165, 250, 0.6)); } }
+        @keyframes loadProgress { 0% { width: 0%; } 100% { width: 100%; } }
 
         @media (max-width: 992px) {
             body { padding-top: 280px; }
@@ -355,6 +401,13 @@
     </style>
 </head>
 <body>
+
+    <div id="loading-screen">
+        <div class="loading-text">Abdelruhman elblasy</div>
+        <div class="loading-bar">
+            <div class="loading-progress"></div>
+        </div>
+    </div>
 
     <div class="sticky-dashboard">
         <div class="live-widgets">
@@ -669,11 +722,11 @@
                             <div class="tasks-container">
                                 <label class="task-item">
                                     <input type="checkbox">
-                                    <span>المهمة 1: مراجعة يونت 10 و 11 و 12</span>
+                                    <span>مراجعة يونت 10 و 11 و 12</span>
                                 </label>
                                 <label class="task-item">
                                     <input type="checkbox">
-                                    <span>المهمة 2: قصة الإنجليزي (Great Expectations)</span>
+                                    <span>قصة الإنجليزي (The Count of Monte Cristo)</span>
                                 </label>
                             </div>
                         </div>
@@ -684,7 +737,7 @@
                             <div class="tasks-container">
                                 <label class="task-item">
                                     <input type="checkbox">
-                                    <span>المهمة 3: قصة الأيام (طه حسين) كاملة</span>
+                                    <span> قصة الأيام (طه حسين) كاملة</span>
                                 </label>
                             </div>
                         </div>
@@ -695,7 +748,7 @@
                             <div class="tasks-container">
                                 <label class="task-item">
                                     <input type="checkbox">
-                                    <span>المهمة 4: مراجعة ملاحظات الأسبوع بالكامل</span>
+                                    <span> مراجعة ملاحظات الأسبوع بالكامل</span>
                                 </label>
                             </div>
                         </div>
@@ -710,6 +763,15 @@
     </div>
 
     <script>
+        // كود التحكم في شاشة التحميل الافتتاحية
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                loadingScreen.style.visibility = 'hidden';
+            }, 2000); // الشاشة تختفي تدريجياً بعد ثانيتين (مدة اكتمال الأنميشن)
+        });
+
         const checkboxes = document.querySelectorAll('.task-item input[type="checkbox"]');
         const circleProgress = document.getElementById('circleProgress');
         const progressText = document.getElementById('progressText');
@@ -758,7 +820,7 @@
             }, 1000);
         }
 
-        // كود ساعة الإيقاف المتناسق مع الواجهة
+        // كود ساعة الإيقاف
         let stopwatchInterval = null;
         let elapsedSeconds = 0;
         let isRunning = false;
@@ -804,7 +866,7 @@
         const motivationalQuotes = [
             "يا بطل! بدايتك اليوم هي خطوة قريبة جداً لحلمك.. استعن بالله وابدأ!",
             "تذكر دائماً: التعب يزول والإنجاز وفرحة النجاح تبقى للأبد. اضغط على نفسك!",
-            "مجموعك في الثانوية العامة يُصنع الآن، في هذه اللحظات التي تقاوم فيها النوم والكسر.",
+            "مجموعك في الثانوية العامة يُصنع الآن، في هذه اللحظات التي تقاوم فيها النوم والكسل.",
             "ليس من الضروري أن تكون رائعاً لتبدأ، ولكن يجب أن تبدأ لتكون رائعاً.",
             "ربّما أنت متعب الآن، ولكن تخيّل ملامح الفرحة على وجه والديك يوم النتيجة.. الأمر يستحق!",
             "كل ساعة مذاكرة تضعها الآن هي لبنة في بناء مستقبلك الفاخر.. لا تفرط في أي دقيقة.",
@@ -820,13 +882,16 @@
             const robotQuoteElement = document.getElementById('robotQuote');
             let lastIndex = 0;
             
+            // اختيار جملة عشوائية فورية عند تحميل الصفحة مباشرة
+            let initIndex = Math.floor(Math.random() * motivationalQuotes.length);
+            robotQuoteElement.innerText = motivationalQuotes[initIndex];
+            lastIndex = initIndex;
+
             setInterval(() => {
-                // تفعيل تأثير اختفاء تدريجي قبل تغيير النص
                 robotQuoteElement.style.opacity = 0;
                 
                 setTimeout(() => {
                     let nextIndex = Math.floor(Math.random() * motivationalQuotes.length);
-                    // ضمان عدم تكرار نفس الجملة مرتين متتاليتين
                     while (nextIndex === lastIndex) {
                         nextIndex = Math.floor(Math.random() * motivationalQuotes.length);
                     }
@@ -834,9 +899,9 @@
                     
                     robotQuoteElement.innerText = motivationalQuotes[nextIndex];
                     robotQuoteElement.style.opacity = 1;
-                }, 500); // نصف ثانية للاختفاء والظهور
+                }, 500);
                 
-            }, 60000); // 60000 مللي ثانية = دقيقة كاملة بالضبط
+            }, 60000); // دقيقة كاملة بالضبط
         }
 
         // التشغيل المبدئي عند تحميل الصفحة
